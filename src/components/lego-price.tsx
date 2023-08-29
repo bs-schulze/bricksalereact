@@ -40,20 +40,20 @@ export function LegoPrice1({prices, categories, setPrices}: {prices: Array<Price
         </tr>
       </thead>
       <tbody>
-     { prices.map((post:Price) => {
+     { prices.map((price:Price) => {
       const regex = /([A-Za-z ®-]*) {1}([0-9]{5,8})\w* /g;
-      const set = regex.exec(post.product_name);
+      const set = regex.exec(price.product_name);
       let name =''
       if(set){
 
-         name = post.product_name.replace(set[0], '');
+         name = price.product_name.replace(set[0], '');
       }
 
       return (
-        <tr key={post.id}>
-          <td>{post.id}</td>
+        <tr key={price.id}>
+          <td>{price.id}</td>
           <td>
-          <b>{post.product_name}</b>
+          <b>{price.product_name}</b>
             <form onSubmit={handleSubmit}>
             <div className='row mb-3'>
               <div className='col-6'>
@@ -66,12 +66,12 @@ export function LegoPrice1({prices, categories, setPrices}: {prices: Array<Price
               </div>
             </div>
             <CategorySelect categories={categories}/>
-            <input className='form-control' defaultValue={post.ean} name="ean"/>
+            <input className='form-control' defaultValue={price.ean} name="ean"/>
           <button type="submit" className=" btn btn-primary"  >submit</button>
           </form>
           </td>
-          <td><img src={post.image_url} height="50px"/></td>
-          <td>{post.ean}</td>
+          <td><img src={price.image_url} height="50px"/></td>
+          <td>{price.ean}</td>
         </tr>
       );  
     }
