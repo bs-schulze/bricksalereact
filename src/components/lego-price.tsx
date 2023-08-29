@@ -11,8 +11,6 @@ export function LegoPrice1({
   categories: Array<Category>;
   setPrices: any;
 }) {
-  // const [postArr, setPosts] = useState(posts);
-
   const handleSubmit = function (event: any) {
     const formData = new FormData(event.currentTarget);
     event.preventDefault();
@@ -87,8 +85,8 @@ export function LegoPrice1({
                     defaultValue={price.ean}
                     name="ean"
                   />
-                  <button type="submit" className=" btn btn-primary">
-                    submit
+                  <button type="submit" className="mt-3 btn btn-primary">
+                    speichern
                   </button>
                 </form>
               </td>

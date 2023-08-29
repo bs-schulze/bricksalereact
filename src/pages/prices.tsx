@@ -28,7 +28,7 @@ export function Prices() {
   }, []);
   return (
     <>
-      <div className="col-9">
+      <div className="">
         <LegoPrice1
           prices={prices}
           categories={categories}

@@ -9,3 +9,9 @@ export type Category = {
   id: number;
   category_name: string;
 };
+export type LegoSet = {
+  setid: string;
+  id: number;
+  setname: string;
+  ean: string;
+};
