@@ -1,6 +1,3 @@
-export function Welcome({person}: {person: string}) {
-    return (
-      <div>
-        Hi {person}
-      </div>
-    );}
+export function Welcome({ person }: { person: string }) {
+  return <div>Hi {person}</div>;
+}
