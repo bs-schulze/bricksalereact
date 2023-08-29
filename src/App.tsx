@@ -6,82 +6,12 @@ import { BrowserRouter, Outlet, Route,  Routes } from 'react-router-dom';
 import { LegoPrice1 } from './components/lego-price';
 import { Category, Price } from './components/types';
 import { CategorySelect } from './components/category-select';
+import { Layout } from './components/layout';
+import { Prices } from './pages/prices';
+import { Welcome } from './pages/welcome';
 
 
 
-
-
-function Layout () {
-  return (
-    <div className="App" >
-      <div className="container">
-        <div className="row">
-          <div className="col-1">
-            MENU
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/test">Test</a></li>
-            </ul>
-          </div>
-            <div className="col-11">
-            <Outlet />
-            </div>
-        </div>
-      </div>
-       
-    </div>
-  )};
-
-
-function Welcome({person}: {person: string}) {
-  return (
-    <div>
-      {person}
-      <p>React makes it painless to create interactive UIs.</p>
-    </div>
-  );}
-
-
-  
-
-const Home = () => {
-  const [prices, setPrices] = useState([]);
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    axios
-       .get('http://localhost:9090/api/legoprices', {
-      
-       }
-       )
-       .then((response) => {
-          setPrices(response.data);
-          // console.log(response.data);
-       })
-       .catch((err) => {
-          console.log(err);
-       });
-       axios
-       .get('http://localhost:9090/api/categories', {
-      
-       }
-       )
-       .then((response) => {
-          setCategories(response.data);
-          console.log(response.data);
-       })
-       .catch((err) => {
-          console.log(err);
-       });
- }, []);
-  return (<>
-        
-            <div className="col-9">
-              {/* <LegoPrice prices={posts} categories={categories}/> */}
-              <LegoPrice1 prices={prices} categories={categories} setPrices={setPrices}/>
-            </div>
-  </>
-)};
 
 function App() {
   
@@ -90,8 +20,8 @@ function App() {
 
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home/>} />
-        <Route path="/test" element={<Welcome person='asd'/>} />
+        <Route index element={<Prices/>} />
+        <Route path="/test" element={<Welcome person='Mrs Money Penny'/>} />
         </Route>
     </Routes>
     </BrowserRouter>  
